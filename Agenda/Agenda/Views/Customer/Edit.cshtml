@@ -1,0 +1,45 @@
+﻿@model Customer
+@{
+    ViewData["Title"] = "Edit Customer";
+}
+
+<h2>Edit customer</h2>
+
+<div asp-validation-summary="All"></div>
+<form method="POST">
+    <div class="mb-3">
+        <label asp-for="Firstname"></label>
+        <input asp-for="Firstname" class="form-control"/>
+        <span asp-validation-for="Firstname" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Lastname"></label>
+        <input asp-for="Lastname" class="form-control"/>
+        <span asp-validation-for="Lastname" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Mail"></label>
+        <input asp-for="Mail" class="form-control"/>
+        <span asp-validation-for="Mail" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="PhoneNumber"></label>
+        <input asp-for="PhoneNumber" class="form-control"/>
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Budget"></label>
+        <input asp-for="Budget" class="form-control"/>
+        <span asp-validation-for="Budget" class="text-danger"></span>
+    </div>
+    <div>
+        <input type="submit" class="btn btn-primary" style="width:100px" value="Edit Customer">
+        <a class="btn btn-primary" asp-controller="Customer" asp-action="Index">Cancel</a>
+    </div>
+
+</form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
