@@ -67,5 +67,17 @@ namespace Agenda.Controllers
         }
 
 
+        public IActionResult Details(int? id)
+        {
+            var brok = _db.Brokers.Find(id);
+            if (brok == null)
+            {
+                return NotFound();
+            }
+
+            return View(brok);
+        }
+
+
     }
 }

@@ -1,0 +1,25 @@
+﻿@model Broker
+@{
+	ViewData["Title"] = "Informations Broker";
+}
+
+
+<table class="table">
+	<thead>
+		<th>Informations :</th>
+		<th></th>
+	</thead>
+	<tbody>
+		<tr>
+			<th>Lastname</th><td>@Model.Lastname</td>
+		</tr>
+		<tr><th>Firstame</th><td>@Model.Firstname</td></tr>
+		
+		<tr><th>Email</th><td>@Model.Mail</td></tr>
+		<tr><th>Phone Number</th><td>@Model.PhoneNumber</td></tr>
+	</tbody>
+</table>
+    <div>
+        <a class="btn btn-primary" asp-controller="Broker" asp-action="Edit" asp-route-id="@Model.IdBroker">Modifier</a>
+        <a class="btn btn-primary" asp-controller="Broker" asp-action="Index">Retour</a>
+    </div>

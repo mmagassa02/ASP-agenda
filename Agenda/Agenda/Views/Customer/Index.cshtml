@@ -1,5 +1,25 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<Customer>
 @{
+	ViewData["Title"] = "index Customers";
 }
+
+<h2>Liste des customers</h2>
+<table class="table" style="width:100%">
+	<thead>
+		<tr>
+			<th>Identité</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var customer in Model)
+		{
+			<tr>
+				<td>@customer.Lastname @customer.Firstname</td>
+				<td><a class="btn btn-primary" asp-controller="Customer" asp-action="Details" asp-route-id="@customer.IdCustomer">Details</a></td>
+				<td><a class="btn btn-primary" asp-controller="Customer" asp-action="Edit" asp-route-id="@customer.IdCustomer">Modifier</a></td>
+				<td><a class="btn btn-danger" asp-controller="Customer" asp-action="Remove" asp-route-id="@customer.IdCustomer">Supprimer</a></td>
+			</tr>
+		}
+	</tbody>
+</table>

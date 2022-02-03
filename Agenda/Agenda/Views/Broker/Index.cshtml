@@ -21,6 +21,7 @@
 		{
 			<tr>
 				<td>@broker.Lastname @broker.Firstname</td>
+				<td><a class="btn btn-primary" asp-controller="Broker" asp-action="Details" asp-route-id="@broker.IdBroker">Details</a></td>
 				<td><a class="btn btn-primary" asp-controller="Broker" asp-action="Edit" asp-route-id="@broker.IdBroker">Modifier</a></td>
 				<td><a class="btn btn-danger" asp-controller="Broker" asp-action="Delete" asp-route-id="@broker.IdBroker">Supprimer</a></td>
 			</tr>

@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Agenda.Models
 {
@@ -10,11 +10,25 @@ namespace Agenda.Models
             Appointments = new HashSet<Appointment>();
         }
 
+        [Key]
         public int IdCustomer { get; set; }
+
+        [Required(ErrorMessage = "Lastname missing")]
         public string Lastname { get; set; } = null!;
+
+        [Required(ErrorMessage = "Firstname missing")]
         public string Firstname { get; set; } = null!;
+
+        [Required(ErrorMessage = "Email missing")]
         public string Mail { get; set; } = null!;
+
+
+        [Required(ErrorMessage = "Phone number missing")]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"[0]{1}[1-7]{1}[0-9]{8}", ErrorMessage = "Not a valid Phone number")]
         public string PhoneNumber { get; set; } = null!;
+
+        [Required(ErrorMessage = "Budget missing")]
         public int Budget { get; set; }
 
         public virtual ICollection<Appointment> Appointments { get; set; }

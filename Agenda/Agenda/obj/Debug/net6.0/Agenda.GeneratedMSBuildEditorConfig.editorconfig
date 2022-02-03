@@ -27,6 +27,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJva2VyXEFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/magas/asp-agenda/asp-agenda/Agenda/Agenda/Views/Broker/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJva2VyXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/magas/asp-agenda/asp-agenda/Agenda/Agenda/Views/Broker/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJva2VyXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -43,12 +47,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/magas/asp-agenda/asp-agenda/Agenda/Agenda/Views/Customer/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/magas/asp-agenda/asp-agenda/Agenda/Agenda/Views/Customer/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/magas/asp-agenda/asp-agenda/Agenda/Agenda/Views/Customer/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/magas/asp-agenda/asp-agenda/Agenda/Agenda/Views/Customer/Remove.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcUmVtb3ZlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/magas/asp-agenda/asp-agenda/Agenda/Agenda/Views/Home/Index.cshtml]
