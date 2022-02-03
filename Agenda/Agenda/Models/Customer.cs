@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Agenda.Models
 {
@@ -11,6 +12,7 @@ namespace Agenda.Models
         }
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdCustomer { get; set; }
 
         [Required(ErrorMessage = "Lastname missing")]

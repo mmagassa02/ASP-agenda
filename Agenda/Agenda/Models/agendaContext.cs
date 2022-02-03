@@ -16,15 +16,15 @@ namespace Agenda.Models
         {
         }
 
-        public DbSet<Appointment> Appointments { get; set; } = null!;
-        public DbSet<Broker> Brokers { get; set; } = null!;
-        public DbSet<Customer> Customers { get; set; } = null!;
+        public virtual DbSet<Appointment> Appointments { get; set; } = null!;
+        public virtual DbSet<Broker> Brokers { get; set; } = null!;
+        public virtual DbSet<Customer> Customers { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server=localhost;Database=agenda;Trusted_Connection=True;");
             }
         }
@@ -35,8 +35,6 @@ namespace Agenda.Models
             {
                 entity.HasKey(e => e.IdAppointment)
                     .HasName("Appointments_PK");
-
-                entity.Property(e => e.IdAppointment).ValueGeneratedNever();
 
                 entity.Property(e => e.DateHour).HasColumnType("datetime");
 
@@ -60,8 +58,6 @@ namespace Agenda.Models
                 entity.HasKey(e => e.IdBroker)
                     .HasName("Brokers_PK");
 
-                entity.Property(e => e.IdBroker).ValueGeneratedNever();
-
                 entity.Property(e => e.Firstname)
                     .HasMaxLength(50)
                     .IsUnicode(false);
@@ -83,8 +79,6 @@ namespace Agenda.Models
             {
                 entity.HasKey(e => e.IdCustomer)
                     .HasName("Customers_PK");
-
-                entity.Property(e => e.IdCustomer).ValueGeneratedNever();
 
                 entity.Property(e => e.Firstname)
                     .HasMaxLength(50)
