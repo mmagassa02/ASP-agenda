@@ -12,7 +12,7 @@
 <div asp-validation-summary="All"></div>
 <form method="POST">
     <div class="mb-3">
-        <select class="form-select">
+        <select class="form-select" asp-for="@Model.IdBroker">
             <option selected>Selectionnez un courtier :</option>
             @foreach(var broker in brokers)
             {
@@ -21,7 +21,7 @@
         </select>
     </div>
     <div class="mb-3">
-        <select class="form-select">
+        <select class="form-select" asp-for="@Model.IdCustomer">
             <option selected>Selectionnez un client :</option>
             @foreach(var customer in customers)
             {
@@ -43,5 +43,4 @@
         <input type="submit" class="btn btn-primary" style="width:100px" value="Ajouter">
         <a class="btn btn-primary" asp-controller="Appointment" asp-action="Index">Cancel</a>
     </div>
-
 </form>

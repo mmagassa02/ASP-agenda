@@ -15,7 +15,7 @@ namespace Agenda.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<Customer> customers = _db.Customers;
+            IEnumerable<Customer> customers = _db.Customers.OrderBy(Customer => Customer.Lastname);
             return View(customers);
         }
 
@@ -27,7 +27,7 @@ namespace Agenda.Controllers
 
         //Add Customer
         [HttpPost]
-        [ValidateAntiForgeryToken] // Attaque de typre cross-site
+        [ValidateAntiForgeryToken] 
         public IActionResult Add(Customer custom)
         {
             if (ModelState.IsValid)
@@ -50,28 +50,26 @@ namespace Agenda.Controllers
             {
                 return NotFound();
             }
-
             return View(custom);
         }
 
 
         [HttpPost]
-        [ValidateAntiForgeryToken] // Attaque de typre cross-site
-        public IActionResult Edit(Customer custom)
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Customer custom, int id)
         {
-            if (ModelState.IsValid)
-            {
+                custom.IdCustomer = id;
                 _db.Customers.Update(custom);
                 _db.SaveChanges();
-                TempData["success"] = "Le client a été modifié";
+                TempData["success"] = "Le client a bien été modifié";
                 return RedirectToAction("Index");
-            }
-            return View();
         }
 
 
 
-        public IActionResult Details(int? id)
+
+        //Detail
+        public IActionResult ProfilCustomer(int? id)
         {
             var custom = _db.Customers.Find(id);
             if (custom == null)
@@ -85,6 +83,9 @@ namespace Agenda.Controllers
 
 
 
+
+
+        //Remove
         public IActionResult Remove(int? id)
         {
             if (id == null || id == 0)
@@ -103,8 +104,9 @@ namespace Agenda.Controllers
         
 
         [HttpPost]
-        public IActionResult Remove(Customer custom)
+        public IActionResult Remove(Customer custom, int id)
         {
+            custom.IdCustomer = id;
             _db.Customers.Remove(custom);
             _db.SaveChanges();
 

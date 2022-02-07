@@ -71,6 +71,10 @@
                     <div class="row mt-3">
                        <h1 style="text-align:center">AGENDA COURTIERS</h1> 
                     </div>
+                    @if(TempData["success"] != null)
+                    {
+                        <div class="alert alert-success">@TempData["success"]</div>
+                    }
                     @RenderBody()
                 </div>
             </div>
@@ -78,11 +82,11 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+@*    <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2022 - Agenda - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
-    </footer>
+    </footer>*@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

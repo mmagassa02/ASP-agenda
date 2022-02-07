@@ -13,7 +13,7 @@ namespace Agenda.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<Broker> Brokers = _db.Brokers;
+            IEnumerable<Broker> Brokers = _db.Brokers.OrderBy(Broker => Broker.Lastname);
             return View(Brokers);
         }
 
@@ -32,7 +32,7 @@ namespace Agenda.Controllers
             {
                 _db.Brokers.Add(brok); //1 prépare l'objet
                 _db.SaveChanges(); // sauvegarde bdd
-                TempData["success"] = "L'article a bien été ajouté";
+                TempData["success"] = "Le courtier a bien été ajouté";
                 return RedirectToAction("Index");
             }
             return View();
@@ -54,13 +54,14 @@ namespace Agenda.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken] // Attaque de typre cross-site
-        public IActionResult Edit(Broker brok)
+        public IActionResult Edit(Broker brok, int id)
         {
             if (ModelState.IsValid)
             {
+                brok.IdBroker= id;
                 _db.Brokers.Update(brok); //1 prépare l'objet
                 _db.SaveChanges(); // sauvegarde bdd
-                TempData["success"] = "Le broker a bien été modifié";
+                TempData["success"] = "Le courtier a bien été modifié";
                 return RedirectToAction("Index");
             }
             return View();

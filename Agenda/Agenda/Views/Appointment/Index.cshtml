@@ -1,23 +1,40 @@
 ﻿@model IEnumerable<Appointment>
 @{
 	ViewData["Title"] = "Index rdv";
+    var brokers = ViewData["Brokers"] as List<Broker>;
+    var customers = ViewData["Customers"] as List<Customer>;
 }
 
-<h2>Prochains rendez-vous</h2>
+<div class="d-flex justify-content-between mt-3">
+	<h4>Liste des courtiers</h4>
+	<a classasp-all-route-data="mr-2"-controller="Appointment" asp-action="Add" style="text-decoration:none"><h6><i class="bi bi-plus-lg"></i>Nouveau Rdv</h6></a>
+</div>
 <table class="table" style="width:100%">
 	<thead>
 		<tr>
-			<th>Rendez-vous</th>
-			<th></th>
+			<th>Rendez-vous</th><th>Courtier</th><th>Client</th>
 		</tr>
 	</thead>
 	<tbody>
 		@foreach(var rdv in Model)
 		{
 			<tr>
-				<td asp-route-sortOrder="@rdv.DateHour"><i class="bi bi-person-fill"></i> <b>@rdv.DateHour </b><br />
+				<td><i class="bi bi-calendar-check"></i>  <b>@rdv.DateHour</b></td>
+				@foreach(var broker in brokers)
+				{
+					if(@broker.IdBroker == @rdv.IdBroker)
+					{
+						<td>@broker.Lastname @broker.Firstname</td>
+					}
+				}
+				@foreach(var customer in customers)
+				{
+					if(@customer.IdCustomer == @rdv.IdCustomer)
+					{
+						<td>@customer.Lastname @customer.Firstname</td>
+					}
+				}
 
-					</td>
 				<td><a class="btn btn-primary" asp-controller="Appointment" asp-action="Details" asp-route-id="@rdv.IdAppointment">Details</a></td>
 				<td><a class="btn btn-danger" asp-controller="Appointment" asp-action="Remove" asp-route-id="@rdv.IdAppointment">Supprimer</a></td>
 			</tr>

@@ -1,0 +1,51 @@
+﻿@model Appointment
+@{
+    ViewData["Title"] = "Nouveau rdv";
+    var brokers = ViewData["Brokers"] as List<Broker>;
+    var customers = ViewData["Customers"] as List<Customer>;
+}
+
+
+
+
+<h2> Supprimer un rdv</h2>
+
+<div class="alert alert-danger" role="alert">Voulez-vous vraiment supprimer ce rendez-vous?</div>
+
+<div asp-validation-summary="All"></div>
+<form method="POST">
+    <div class="mb-3">
+            @foreach(var broker in brokers)
+            {
+                if(broker.IdBroker == @Model.IdBroker)
+                {
+                    <label asp-for="@Model.IdBroker"></label>
+                    <input type="text"  asp-for="@broker.Firstname" class="form-control" value ="@broker.Firstname @broker.Lastname" disabled/>
+                }
+            }
+    </div>
+    <div class="mb-3">
+            @foreach(var customer in customers)
+            {
+                if(customer.IdCustomer == @Model.IdCustomer)
+                {
+                    <label asp-for="@Model.IdCustomer"></label>
+                     <input type="text"  asp-for="@customer.Firstname" class="form-control" value ="@customer.Firstname @customer.Lastname" disabled/>
+                }
+            }
+    </div>
+    <div class="mb-3">
+        <label asp-for="DateHour"></label>
+        <input type="datetime-local"  asp-for="DateHour" class="form-control" disabled/>
+        <span asp-validation-for="DateHour" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Subject"></label>
+        <textarea asp-for="Subject" class="form-control" disabled></textarea>
+    </div>
+    <div>
+        <input type="submit" class="btn btn-primary" style="width:100px" value="Supprimer">
+        <a class="btn btn-primary" asp-controller="Appointment" asp-action="Index">Cancel</a>
+    </div>
+
+</form>

@@ -1,5 +1,41 @@
-﻿@{
-	ViewData["Title"] = "Detail rdv"
+﻿@model Appointment
+@{
+	ViewData["Title"] = "Detail rdv";
+	var brokers = ViewData["Brokers"] as List<Broker>;
+    var customers = ViewData["Customers"] as List<Customer>;
 }
 
+<h2>Détails rendez-vous</h2>
+
+<table class="table">
+	<thead>
+		<th>Informations rdv:</th>
+		<th></th>
+	</thead>
+	<tbody>
+		@foreach(var broker in brokers)
+		{
+			if(broker.IdBroker == @Model.IdBroker)
+			{
+				<tr><th>Courtier</th><td>@broker.Lastname @broker.Firstname</td></tr>
+			}
+
+		}
+		@foreach(var customer in customers)
+			{
+				if(customer.IdCustomer == @Model.IdCustomer)
+				{
+					<tr><th>Client</th><td>@customer.Lastname @customer.Firstname</td></tr>
+					<tr><th><i class="bi bi-at"></i> Email</th><td>@customer.Mail</td></tr>
+				}
+			}
+			<tr><th>Date</th><td>@Model.DateHour</td></tr>
+			<tr><th>Sujet</th><td>@Model.Subject</td></tr>
+
+	</tbody>
+</table>
+    <div>
+        <a class="btn btn-primary" asp-controller="Appointment" asp-action="Edit" asp-route-id="@Model.IdAppointment">Modifier</a>
+        <a class="btn btn-primary" asp-controller="Appointment" asp-action="Index">Retour</a>
+    </div>
 
