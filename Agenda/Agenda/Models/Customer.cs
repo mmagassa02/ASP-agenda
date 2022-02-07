@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace Agenda.Models
 {
@@ -12,25 +12,28 @@ namespace Agenda.Models
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdCustomer { get; set; }
 
-        [Required(ErrorMessage = "Lastname missing")]
+        [Required(ErrorMessage = "Nom manquant")]
+        [Display(Name ="Nom")]
         public string Lastname { get; set; } = null!;
 
-        [Required(ErrorMessage = "Firstname missing")]
+        [Required(ErrorMessage = "Prénom manquant")]
+        [Display(Name = "Prénom")]
         public string Firstname { get; set; } = null!;
 
-        [Required(ErrorMessage = "Email missing")]
+        [Required(ErrorMessage = "Adresse mail manquante")]
+        [EmailAddress (ErrorMessage ="Le champ Email n'est pas valide")]
+        [Display(Name = "Adresse mail")]
         public string Mail { get; set; } = null!;
 
-
-        [Required(ErrorMessage = "Phone number missing")]
+        [Required(ErrorMessage = "Téléphone manquant")]
         [DataType(DataType.PhoneNumber)]
-        [RegularExpression(@"[0]{1}[1-7]{1}[0-9]{8}", ErrorMessage = "Not a valid Phone number")]
+        [RegularExpression(@"[0]{1}[1-7]{1}[0-9]{8}", ErrorMessage = "Numéro invalide")]
+        [Display(Name = "Téléphone")]
         public string PhoneNumber { get; set; } = null!;
 
-        [Required(ErrorMessage = "Budget missing")]
+        [Required(ErrorMessage = "Budget manquant")]
         public int Budget { get; set; }
 
         public virtual ICollection<Appointment> Appointments { get; set; }

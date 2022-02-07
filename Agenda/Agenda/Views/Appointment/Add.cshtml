@@ -1,0 +1,47 @@
+﻿@model Appointment
+@{
+    ViewData["Title"] = "Nouveau rdv";
+    var brokers = ViewData["Brokers"] as List<Broker>;
+    var customers = ViewData["Customers"] as List<Customer>;
+}
+
+
+
+
+<h2> Nouveau rendez-vous</h2>
+<div asp-validation-summary="All"></div>
+<form method="POST">
+    <div class="mb-3">
+        <select class="form-select">
+            <option selected>Selectionnez un courtier :</option>
+            @foreach(var broker in brokers)
+            {
+                <option value="@broker.IdBroker">@broker.Lastname @broker.Firstname</option>
+            }
+        </select>
+    </div>
+    <div class="mb-3">
+        <select class="form-select">
+            <option selected>Selectionnez un client :</option>
+            @foreach(var customer in customers)
+            {
+                <option value="@customer.IdCustomer">@customer.Lastname @customer.Firstname</option>
+            }
+        </select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="DateHour"></label>
+        <input type="datetime-local"  asp-for="DateHour" class="form-control"/>
+        <span asp-validation-for="DateHour" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Subject"></label>
+        <textarea asp-for="Subject" class="form-control"></textarea>
+        <span asp-validation-for="Subject" class="text-danger"></span>
+    </div>
+    <div>
+        <input type="submit" class="btn btn-primary" style="width:100px" value="Ajouter">
+        <a class="btn btn-primary" asp-controller="Appointment" asp-action="Index">Cancel</a>
+    </div>
+
+</form>

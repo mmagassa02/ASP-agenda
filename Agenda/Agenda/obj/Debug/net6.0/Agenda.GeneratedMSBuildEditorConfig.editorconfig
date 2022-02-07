@@ -15,6 +15,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\magas\asp-agenda\asp-agenda\Agenda\Agenda
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/magas/asp-agenda/asp-agenda/Agenda/Agenda/Views/Appointment/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwb2ludG1lbnRcQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/magas/asp-agenda/asp-agenda/Agenda/Agenda/Views/Appointment/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwb2ludG1lbnRcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/magas/asp-agenda/asp-agenda/Agenda/Agenda/Views/Appointment/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwb2ludG1lbnRcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

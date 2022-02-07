@@ -1,6 +1,6 @@
 ﻿@model Customer
 @{
-	ViewData["Title"] = "Information customer";
+	ViewData["Title"] = "Information client";
 }
 
 
@@ -11,17 +11,17 @@
 	</thead>
 	<tbody>
 		<tr>
-			<th>Lastname</th><td>@Model.Lastname</td>
+			<th>Nom</th><td>@Model.Lastname</td>
 		</tr>
-		<tr><th>Firstame</th><td>@Model.Firstname</td></tr>
+		<tr><th>Prénom</th><td>@Model.Firstname</td></tr>
 		
-		<tr><th>Email</th><td>@Model.Mail</td></tr>
-		<tr><th>Phone Number</th><td>@Model.PhoneNumber</td></tr>
-		<tr><th>Budget</th><td>@Model.Budget €</td></tr>
+		<tr><th><i class="bi bi-at"></i> Email</th><td>@Model.Mail</td></tr>
+		<tr><th><i class="bi bi-telephone-fill"></i> Téléphone</th><td>@Model.PhoneNumber</td></tr>
+		<tr><th><i class="bi bi-currency-euro"></i> Budget</th><td>@Model.Budget €</td></tr>
 	</tbody>
 </table>
     <div>
         <a class="btn btn-primary" asp-controller="Customer" asp-action="Edit" asp-route-id="@Model.IdCustomer">Modifier</a>
-		<button class="btn btn-danger" asp-controller="Customer" asp-action="Remove" asp-route-id="@Model.IdCustomer">Supprimer</button>
+		<a class="btn btn-danger" asp-controller="Customer" asp-action="Remove" asp-route-id="@Model.IdCustomer">Supprimer</a>
         <a class="btn btn-primary" asp-controller="Customer" asp-action="Index">Retour</a>
     </div>

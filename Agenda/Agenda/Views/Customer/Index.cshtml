@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<Customer>
 @{
-	ViewData["Title"] = "index Customers";
+	ViewData["Title"] = "Index clients";
 }
 
-<h2>Liste des customers</h2>
+<h2>Liste des clients</h2>
 <table class="table" style="width:100%">
 	<thead>
 		<tr>
@@ -15,7 +15,7 @@
 		@foreach(var customer in Model)
 		{
 			<tr>
-				<td>@customer.Lastname @customer.Firstname</td>
+				<td> <i class="bi bi-person-fill"></i> @customer.Lastname @customer.Firstname</td>
 				<td><a class="btn btn-primary" asp-controller="Customer" asp-action="Details" asp-route-id="@customer.IdCustomer">Details</a></td>
 				<td><a class="btn btn-primary" asp-controller="Customer" asp-action="Edit" asp-route-id="@customer.IdCustomer">Modifier</a></td>
 				<td><a class="btn btn-danger" asp-controller="Customer" asp-action="Remove" asp-route-id="@customer.IdCustomer">Supprimer</a></td>

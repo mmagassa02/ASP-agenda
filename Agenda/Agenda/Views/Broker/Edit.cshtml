@@ -1,9 +1,9 @@
 ﻿@model Broker
 @{
-    ViewData["Title"] = "Edit Broker";
+    ViewData["Title"] = "Modification courtier";
 }
 
-<h2> Edit Broker</h2>
+<h2>Modifier un courtier</h2>
 
 <div asp-validation-summary="All"></div>
 <form method="POST">
@@ -28,7 +28,7 @@
         <span asp-validation-for="PhoneNumber" class="text-danger"></span>
     </div>
     <div>
-        <input type="submit" class="btn btn-primary" style="width:100px" value="Edit Broker">
+        <input type="submit" class="btn btn-primary" style="width:100px" value="Modifier">
         <a class="btn btn-primary" asp-controller="Broker" asp-action="Index">Cancel</a>
     </div>
 

@@ -63,7 +63,7 @@ namespace Agenda.Controllers
             {
                 _db.Customers.Update(custom);
                 _db.SaveChanges();
-                TempData["success"] = "Client modifié";
+                TempData["success"] = "Le client a été modifié";
                 return RedirectToAction("Index");
             }
             return View();
@@ -82,6 +82,9 @@ namespace Agenda.Controllers
             return View(custom);
         }
 
+
+
+
         public IActionResult Remove(int? id)
         {
             if (id == null || id == 0)
@@ -98,8 +101,8 @@ namespace Agenda.Controllers
         }
 
         
+
         [HttpPost]
-        [ValidateAntiForgeryToken] // Attaque de typre cross-site
         public IActionResult Remove(Customer custom)
         {
             _db.Customers.Remove(custom);
